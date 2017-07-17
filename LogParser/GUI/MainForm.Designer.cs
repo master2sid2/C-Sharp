@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.OpenFileBottun = new System.Windows.Forms.Button();
-            this.Bottun = new System.Windows.Forms.Button();
+            this.ShowHideBottun = new System.Windows.Forms.Button();
             this.SaveBottun = new System.Windows.Forms.Button();
             this.ControlGroupBox = new System.Windows.Forms.GroupBox();
-            this.RegisterCheckBox = new System.Windows.Forms.CheckBox();
             this.InvertCheckBox = new System.Windows.Forms.CheckBox();
+            this.RegisterCheckBox = new System.Windows.Forms.CheckBox();
             this.InputTextBox = new System.Windows.Forms.TextBox();
             this.LabelInputTextBox = new System.Windows.Forms.Label();
             this.ControlGroupBox.SuspendLayout();
@@ -47,15 +47,17 @@
             this.OpenFileBottun.TabIndex = 0;
             this.OpenFileBottun.Text = "Открыть файл";
             this.OpenFileBottun.UseVisualStyleBackColor = true;
+            this.OpenFileBottun.Click += new System.EventHandler(this.OpenFileBottun_Click);
             // 
-            // Bottun
+            // ShowHideBottun
             // 
-            this.Bottun.Location = new System.Drawing.Point(116, 109);
-            this.Bottun.Name = "Bottun";
-            this.Bottun.Size = new System.Drawing.Size(100, 30);
-            this.Bottun.TabIndex = 1;
-            this.Bottun.Text = "Спрятать окно";
-            this.Bottun.UseVisualStyleBackColor = true;
+            this.ShowHideBottun.Location = new System.Drawing.Point(116, 109);
+            this.ShowHideBottun.Name = "ShowHideBottun";
+            this.ShowHideBottun.Size = new System.Drawing.Size(100, 30);
+            this.ShowHideBottun.TabIndex = 1;
+            this.ShowHideBottun.Text = "Спрятать окно";
+            this.ShowHideBottun.UseVisualStyleBackColor = true;
+            this.ShowHideBottun.Click += new System.EventHandler(this.Bottun_Click);
             // 
             // SaveBottun
             // 
@@ -77,25 +79,25 @@
             this.ControlGroupBox.TabStop = false;
             this.ControlGroupBox.Text = "Опции";
             // 
-            // RegisterCheckBox
-            // 
-            this.RegisterCheckBox.AutoSize = true;
-            this.RegisterCheckBox.Location = new System.Drawing.Point(7, 20);
-            this.RegisterCheckBox.Name = "RegisterCheckBox";
-            this.RegisterCheckBox.Size = new System.Drawing.Size(114, 17);
-            this.RegisterCheckBox.TabIndex = 0;
-            this.RegisterCheckBox.Text = "С учтом регистра";
-            this.RegisterCheckBox.UseVisualStyleBackColor = true;
-            // 
             // InvertCheckBox
             // 
             this.InvertCheckBox.AutoSize = true;
             this.InvertCheckBox.Location = new System.Drawing.Point(206, 20);
             this.InvertCheckBox.Name = "InvertCheckBox";
-            this.InvertCheckBox.Size = new System.Drawing.Size(98, 17);
+            this.InvertCheckBox.Size = new System.Drawing.Size(104, 17);
             this.InvertCheckBox.TabIndex = 1;
-            this.InvertCheckBox.Text = "Инертировать";
+            this.InvertCheckBox.Text = "Инвертировать";
             this.InvertCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // RegisterCheckBox
+            // 
+            this.RegisterCheckBox.AutoSize = true;
+            this.RegisterCheckBox.Location = new System.Drawing.Point(7, 20);
+            this.RegisterCheckBox.Name = "RegisterCheckBox";
+            this.RegisterCheckBox.Size = new System.Drawing.Size(120, 17);
+            this.RegisterCheckBox.TabIndex = 0;
+            this.RegisterCheckBox.Text = "С учётом регистра";
+            this.RegisterCheckBox.UseVisualStyleBackColor = true;
             // 
             // InputTextBox
             // 
@@ -117,12 +119,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(336, 147);
+            this.ClientSize = new System.Drawing.Size(334, 147);
             this.Controls.Add(this.LabelInputTextBox);
             this.Controls.Add(this.InputTextBox);
             this.Controls.Add(this.ControlGroupBox);
             this.Controls.Add(this.SaveBottun);
-            this.Controls.Add(this.Bottun);
+            this.Controls.Add(this.ShowHideBottun);
             this.Controls.Add(this.OpenFileBottun);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
@@ -132,6 +134,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LogParser";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.ControlGroupBox.ResumeLayout(false);
             this.ControlGroupBox.PerformLayout();
             this.ResumeLayout(false);
@@ -142,7 +145,7 @@
         #endregion
 
         private System.Windows.Forms.Button OpenFileBottun;
-        private System.Windows.Forms.Button Bottun;
+        private System.Windows.Forms.Button ShowHideBottun;
         private System.Windows.Forms.Button SaveBottun;
         private System.Windows.Forms.GroupBox ControlGroupBox;
         private System.Windows.Forms.CheckBox InvertCheckBox;
