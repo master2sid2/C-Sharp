@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LogParser
+namespace LogParser.GUI
 {
-    public partial class Form1 : Form
+    public partial class PreviewForm : Form
     {
-        public Form1()
+        public PreviewForm()
         {
             InitializeComponent();
         }
