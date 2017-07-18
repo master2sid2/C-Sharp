@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace LogParser.Base
 {
     static class StateElements
@@ -15,5 +10,9 @@ namespace LogParser.Base
             get { return VisiblePreviewWindows; }
             set { VisiblePreviewWindows = value; }
         }
+
+        public static bool RegisterCheckBox { get; set; }
+
+        public static bool InverseCheckBox { get; set; }
     }
 }

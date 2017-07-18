@@ -67,6 +67,7 @@
             this.SaveBottun.TabIndex = 2;
             this.SaveBottun.Text = "Сохранить файл";
             this.SaveBottun.UseVisualStyleBackColor = true;
+            this.SaveBottun.Click += new System.EventHandler(this.SaveBottun_Click);
             // 
             // ControlGroupBox
             // 
@@ -88,6 +89,7 @@
             this.InvertCheckBox.TabIndex = 1;
             this.InvertCheckBox.Text = "Инвертировать";
             this.InvertCheckBox.UseVisualStyleBackColor = true;
+            this.InvertCheckBox.CheckedChanged += new System.EventHandler(this.InvertCheckBox_CheckedChanged);
             // 
             // RegisterCheckBox
             // 
@@ -98,6 +100,7 @@
             this.RegisterCheckBox.TabIndex = 0;
             this.RegisterCheckBox.Text = "С учётом регистра";
             this.RegisterCheckBox.UseVisualStyleBackColor = true;
+            this.RegisterCheckBox.CheckedChanged += new System.EventHandler(this.RegisterCheckBox_CheckedChanged);
             // 
             // InputTextBox
             // 
@@ -105,6 +108,7 @@
             this.InputTextBox.Name = "InputTextBox";
             this.InputTextBox.Size = new System.Drawing.Size(310, 20);
             this.InputTextBox.TabIndex = 4;
+            this.InputTextBox.TextChanged += new System.EventHandler(this.InputTextBox_TextChanged);
             // 
             // LabelInputTextBox
             // 
@@ -132,7 +136,7 @@
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LogParser";
+            this.Text = "Парсер логов";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.ControlGroupBox.ResumeLayout(false);

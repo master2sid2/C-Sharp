@@ -1,13 +1,86 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
+using LogParser.Base;
+using LogParser.GUI;
 
 namespace LogParser.Logic
 {
     static class Filter
     {
+        private static TextBox previewBox;
+        private static StringBuilder fillLine = new StringBuilder();
+        public static void setFilter(PreviewForm preview, string inputString)
+        {
+            fillLine.Clear();
+            if (!StateElements.RegisterCheckBox && !StateElements.InverseCheckBox)
+            {
+                RegisteredFilter(inputString);
+                LinesCounter(preview);
+            }
+            else if (StateElements.RegisterCheckBox && !StateElements.InverseCheckBox)
+            {
+                foreach (var element in FileInputStram.ControlInList)
+                {
+                    if (element.Contains(inputString))
+                    {
+                        fillLine.AppendLine(element);
+                    }
+                }
+                LinesCounter(preview);
+            }
+            else if (StateElements.RegisterCheckBox && StateElements.InverseCheckBox)
+            {
+                foreach (var element in FileInputStram.ControlInList)
+                {
+                    if (!element.Contains(inputString))
+                    {
+                        fillLine.AppendLine(element);
+                    }
+                }
+                LinesCounter(preview);
+            }
+            else if (!StateElements.RegisterCheckBox && StateElements.InverseCheckBox)
+            {
+                InversedFilter(inputString);
+                LinesCounter(preview);
+            }
+            preview.setText(fillLine.ToString());
+           // previewBox = (TextBox)preview.Controls.Find("PreviewTextBox", true).FirstOrDefault();
+           // previewBox.Text = fillLine.ToString();
+        }
+        private static void RegisteredFilter(string str)
+        {
+            fillLine.Clear();
+            foreach (var element in FileInputStram.ControlInList)
+            {
+                if (element.ToLower().Contains(str.ToLower()))
+                {
+                    fillLine.AppendLine(element);
+                }
+            }
+        }
 
+        private static void InversedFilter(string str)
+        {
+            fillLine.Clear();
+            foreach (var element in FileInputStram.ControlInList)
+            {
+                if (!element.ToLower().Contains(str.ToLower()))
+                {
+                    fillLine.AppendLine(element);
+                }
+            }
+        }
+
+        public static string getFilteredText()
+        {
+            return fillLine.ToString();
+        }
+
+        public static void LinesCounter(PreviewForm preview)
+        {
+            preview.setLinesCount(preview.getLinesCount());
+        }
     }
 }
