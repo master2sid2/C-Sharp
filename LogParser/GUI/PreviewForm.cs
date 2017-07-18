@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -33,10 +34,6 @@ namespace LogParser.GUI
             else
                 StatusStripLabel.Text = string.Format("Строк: {0}", number - 1);
             
-        }
-        public int getLinesCount()
-        {
-            return PreviewTextBox.Lines.Count();
         }
     }
 }

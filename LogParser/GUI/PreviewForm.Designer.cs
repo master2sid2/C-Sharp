@@ -83,8 +83,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox PreviewTextBox;
         private System.Windows.Forms.StatusStrip PreviewWindowStatusStrip;
         private System.Windows.Forms.ToolStripStatusLabel StatusStripLabel;
+        public System.Windows.Forms.TextBox PreviewTextBox;
     }
 }

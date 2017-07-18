@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using LogParser.Base;
@@ -16,7 +17,6 @@ namespace LogParser.Logic
             if (!StateElements.RegisterCheckBox && !StateElements.InverseCheckBox)
             {
                 RegisteredFilter(inputString);
-                LinesCounter(preview);
             }
             else if (StateElements.RegisterCheckBox && !StateElements.InverseCheckBox)
             {
@@ -27,7 +27,6 @@ namespace LogParser.Logic
                         fillLine.AppendLine(element);
                     }
                 }
-                LinesCounter(preview);
             }
             else if (StateElements.RegisterCheckBox && StateElements.InverseCheckBox)
             {
@@ -38,16 +37,14 @@ namespace LogParser.Logic
                         fillLine.AppendLine(element);
                     }
                 }
-                LinesCounter(preview);
             }
             else if (!StateElements.RegisterCheckBox && StateElements.InverseCheckBox)
             {
                 InversedFilter(inputString);
-                LinesCounter(preview);
+                
             }
             preview.setText(fillLine.ToString());
-           // previewBox = (TextBox)preview.Controls.Find("PreviewTextBox", true).FirstOrDefault();
-           // previewBox.Text = fillLine.ToString();
+            LinesCounter(preview);
         }
         private static void RegisteredFilter(string str)
         {
@@ -80,7 +77,7 @@ namespace LogParser.Logic
 
         public static void LinesCounter(PreviewForm preview)
         {
-            preview.setLinesCount(preview.getLinesCount());
+            preview.setLinesCount(preview.PreviewTextBox.Lines.Where(line => !String.IsNullOrWhiteSpace(line)).Count());
         }
     }
 }
