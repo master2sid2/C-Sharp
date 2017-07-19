@@ -36,12 +36,11 @@
             // 
             // PreviewTextBox
             // 
-            this.PreviewTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PreviewTextBox.Location = new System.Drawing.Point(0, 0);
             this.PreviewTextBox.Multiline = true;
             this.PreviewTextBox.Name = "PreviewTextBox";
             this.PreviewTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.PreviewTextBox.Size = new System.Drawing.Size(784, 361);
+            this.PreviewTextBox.Size = new System.Drawing.Size(784, 339);
             this.PreviewTextBox.TabIndex = 0;
             // 
             // PreviewWindowStatusStrip
